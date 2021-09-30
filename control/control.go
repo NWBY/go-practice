@@ -13,3 +13,20 @@ func IfStatements(yearFounded uint) {
 		fmt.Println("The business was founded in the year unknown!")
 	}
 }
+
+func SwitchStatements(name string) {
+	switch name {
+	case "Sam":
+		fmt.Println("Switched on Sam!")
+	case "Courtney":
+		fmt.Println("Switched on Courtney!")
+	default:
+		fmt.Println("Switched on " + name + "!")
+	}
+}
+
+func LoopMeBaby() {
+	for i := 0; i < 2; i++ {
+		fmt.Println(i)
+	}
+}

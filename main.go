@@ -1,7 +1,12 @@
 package main
 
 import (
+	"fmt"
+	"net/http"
+
 	"github.com/NWBY/go-practice/functions"
+	"github.com/NWBY/go-practice/http_handlers"
+	"github.com/NWBY/go-practice/interfaces"
 	"github.com/NWBY/go-practice/pointers"
 	"github.com/NWBY/go-practice/structs"
 )
@@ -21,9 +26,9 @@ func main() {
 	// Defining a struct
 	// Struct literal definition
 	b1 := structs.Business{
-		Name: "Render Labs Limited",
+		Name:     "Render Labs Limited",
 		Industry: "Software",
-		Founded: 2020,
+		Founded:  2020,
 	}
 
 	// Dot notation definition
@@ -38,7 +43,6 @@ func main() {
 	b3.Industry = "Hosting"
 	b3.Founded = 2005
 
-
 	b1.GetName()
 	b1.GetIndustry()
 	b1.GetYearFounded()
@@ -50,4 +54,18 @@ func main() {
 	b3.GetName()
 	b3.GetIndustry()
 	b3.GetYearFounded()
+
+	car := interfaces.Car{
+		Brand: "Ford",
+	}
+
+	bike := interfaces.Bike{
+		Brand: "Honda",
+	}
+
+	fmt.Println(car.GetBrand())
+	fmt.Println(bike.GetBrand())
+
+	http.HandleFunc("/hello", http_handlers.GetCars)
+	http.ListenAndServe(":9010", nil)
 }

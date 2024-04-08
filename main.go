@@ -19,8 +19,16 @@ func main() {
 	functions.VariadicFunction("Wendy", "Courtney")
 	functions.RecursiveFunction(15)
 
+	fmt.Println("")
+	fmt.Println("----------------------------------------------------")
+	fmt.Println("")
+
 	// Pointers code
 	pointers.PointersOutter()
+
+	fmt.Println("")
+	fmt.Println("----------------------------------------------------")
+	fmt.Println("")
 
 	// Struct and methods code
 	// Defining a struct
@@ -65,6 +73,16 @@ func main() {
 
 	fmt.Println(car.GetBrand())
 	fmt.Println(bike.GetBrand())
+
+	fmt.Println("")
+	fmt.Println("----------------------------------------------------")
+	fmt.Println("")
+
+	fmt.Println("Starting the HTTP server on port: 9010")
+	fmt.Println("")
+	fmt.Println("Make a request to /hello to see something magical!")
+	fmt.Println("")
+	fmt.Println("Shut the server down with Ctrl + c")
 
 	http.HandleFunc("/hello", http_handlers.GetCars)
 	http.ListenAndServe(":9010", nil)

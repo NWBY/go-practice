@@ -18,3 +18,6 @@ This repo is for practicing and improving my Go knowledge and skills
 * [How does error handling work in Go?](/interviews/error-handling.md)
 * [Buffered vs Unbuffered Channels?](/interviews/concurrency.md#difference-between-buffered-and-unbuffered-channels-in-go)
 * [What is init?](/interviews/other.md#what-is-the-init-function)
+* [Difference between array and slice](/interviews/slices.md#difference-between-array-and-slice)
+* [What is a channel?](/interviews/concurrency.md#what-is-a-channel)
+* [How do you use a channel?](/interviews/concurrency.md#how-do-you-use-a-channel)

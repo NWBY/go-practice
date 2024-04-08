@@ -50,3 +50,92 @@ func main() {
 }
 ```
 
+### What is select?
+
+
+Go’s select lets you wait on multiple channel operations. Combining goroutines and channels with select is a powerful feature of Go. It will select one channel at random to execute on if multiple channels are ready, if only one channel is ready it will select that one.
+
+Example where both channels are ready:
+```go
+package main
+import "fmt"
+
+func main() {
+
+  // create two channels
+  number := make(chan int)
+  message := make(chan string)
+
+  // function call with goroutine
+  go channelNumber(number)
+  go channelMessage(message)
+  
+  // selects and executes a channel
+  select {
+
+    case firstChannel := <- number:
+      fmt.Println("Channel Data:", firstChannel)
+
+    case secondChannel := <- message:
+      fmt.Println("Channel Data:", secondChannel)
+}
+
+}
+
+// goroutine to send integer data to channel
+func channelNumber(number chan int) {
+  number <- 15
+}
+
+// goroutine to send string data to channel
+ func channelMessage(message chan string) {
+   message <- "Learning Go select"
+}
+```
+
+Example where one channel is ready:
+```go
+package main
+import (
+  "fmt"
+  "time"
+)
+
+func main() {
+
+  // create channels
+  number := make(chan int)
+  message := make(chan string)
+
+  // function call with goroutine
+  go channelNumber(number)
+  go channelMessage(message)
+
+  // selects and executes a channel
+  select {
+    case firstChannel := <-number:
+      fmt.Println("Channel Data:", firstChannel)
+
+    case secondChannel := <-message:
+      fmt.Println("Channel Data:", secondChannel)
+  }
+
+}
+
+// goroutine to send data to the channel
+func channelNumber(number chan int) {
+  number <- 15
+}
+
+// goroutine to send data to the channel
+func channelMessage(message chan string) {
+  
+  // sleeps the process by 2 seconds
+  time.Sleep(2 * time.Second)
+
+  message <- "Learning Go Select"
+}
+```
+
+The result would be: `Channel Data: 15` as the channel message function is blocked so the select will select the number channel as it is free.
+

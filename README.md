@@ -21,3 +21,5 @@ This repo is for practicing and improving my Go knowledge and skills
 * [Difference between array and slice](/interviews/slices.md#difference-between-array-and-slice)
 * [What is a channel?](/interviews/concurrency.md#what-is-a-channel)
 * [How do you use a channel?](/interviews/concurrency.md#how-do-you-use-a-channel)
+* [What is the use of defer?](/interviews/other.md#what-is-the-use-of-defer)
+* [What is select?](/interviews/concurrency.md#what-is-select)
